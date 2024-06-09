@@ -1,0 +1,1 @@
+var json_BatimentUfrS2ATA_5 = {"type":"FeatureCollection","name":"BatimentUfrS2ATA_5","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[]}

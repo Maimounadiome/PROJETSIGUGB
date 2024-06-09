@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Titre de votre page</title>
+    <link rel="stylesheet" href="./resources/ol.css">
+    <link rel="stylesheet" href="resources/fontawesome-all.min.css">
+    <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
+    <link rel="stylesheet" href="./resources/qgis2web.css">
+    <link href="resources/ol-geocoder.min.css" rel="stylesheet">
+    <style>
+        /* Ajoutez vos styles CSS ici */
+        .tooltip {
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            color: white;
+            padding: 4px 8px;
+            opacity: 0.7;
+            white-space: nowrap;
+        }
+        /* Ajoutez d'autres styles selon vos besoins */
+        #map {
+            width: 930px;
+            height: 501px;
+        }
+    </style>
+</head>
+<body>
+<div id="map">
+    <!-- Le conteneur de la carte -->
+    <div id="popup" class="ol-popup">
+        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+        <div id="popup-content"></div>
+    </div>
+</div>
+
+<div id="buttons">
+    <button id="locate-button">Locate Me</button>
+    <input type="text" id="search-input" placeholder="Search for a place...">
+    <button id="search-button">Search</button>
+</div>
+
+<script src="resources/qgis2web_expressions.js"></script>
+<script src="resources/proj4.js"></script>
+<script src="resources/polyfills.js"></script>
+<script src="./resources/functions.js"></script>
+<script src="./resources/ol.js"></script>
+<script src="./resources/ol-layerswitcher.js"></script>
+<script src="resources/ol-geocoder.js"></script>
+<script src="./resources/Autolinker.min.js"></script>
+<script src="./resources/qgis2web.js"></script>
+
+<script>
+    // Initialisation de la carte
+    var map = new ol.Map({
+        target: 'map',
+        layers: [ /* ajouter vos couches ici */ ],
+        view: new ol.View({
+            center: ol.proj.fromLonLat([0, 0]), // Coordonner centrale par défaut
+            zoom: 2
+        })
+    });
+
+    // Ajout du géocodeur
+    var geocoder = new Geocoder('nominatim', {
+        provider: 'osm',
+        lang: 'en',
+        placeholder: 'Search for a place...',
+        limit: 5,
+        debug: false,
+        autoComplete: true,
+        keepOpen: false
+    });
+    map.addControl(geocoder);
+
+    // Fonction pour la géolocalisation
+    function trackLocation() {
+        // Code pour suivre la localisation de l'utilisateur
+    }
+
+    // Fonction pour la recherche de lieux
+    function searchLocation() {
+        // Code pour effectuer une recherche de lieu et afficher les résultats
+    }
+
+    // Événements pour déclencher les fonctions
+    document.getElementById('locate-button').addEventListener('click', trackLocation);
+    document.getElementById('search-button').addEventListener('click', searchLocation);
+</script>
+</body>
+</html>
